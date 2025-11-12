@@ -1,63 +1,234 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>โปรไฟล์ของฉัน</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-    }
-    .profile-container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    img.profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #4CAF50;
-      margin-bottom: 20px;
-    }
-    h1 {
-      margin: 10px 0 5px;
-      font-size: 28px;
-      color: #333;
-    }
-    p.bio {
-      color: #666;
-      font-size: 16px;
-    }
-    .contact {
-      margin-top: 20px;
-    }
-    .contact a {
-      color: #4CAF50;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | GitHub.io ของนักศึกษา</title>
+    
+    <style>
+        /* การตั้งค่าพื้นฐาน */
+        body {
+            font-family: 'Arial', 'Tahoma', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #eef1f5; /* สีพื้นหลังอ่อน */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50; /* สีน้ำเงินเข้ม/เทา */
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+        }
+
+        header h2 {
+            margin: 5px 0 0;
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+
+        /* การจัดวางแบบ Flexbox สำหรับส่วนต่างๆ */
+        .section-row {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 20px; /* ระยะห่างระหว่างส่วนย่อย */
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1; 
+            min-width: 300px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        /* สำหรับการ์ดที่ต้องการความกว้างมากกว่า */
+        .wide-card {
+            flex: 2;
+        }
+
+        .full-width-card {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* หัวข้อส่วนต่างๆ */
+        .heading h3 {
+            color: #3498db; /* สีน้ำเงินสว่าง */
+            border-left: 5px solid #e74c3c; /* แถบสีแดงด้านซ้าย */
+            padding-left: 10px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .purpose {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        /* รายการ (List) */
+        ul {
+            padding-left: 0;
+            list-style-type: none; /* ไม่มีสัญลักษณ์นำหน้า */
+        }
+
+        ul li {
+            padding: 5px 0;
+        }
+
+        /* สัญลักษณ์นำหน้ารายการผลงาน/กิจกรรม */
+        .project-list li::before {
+            content: "💡"; 
+            margin-right: 10px;
+        }
+
+        .activity-list li::before {
+            content: "⭐";
+            margin-right: 10px;
+        }
+
+        /* ลิงก์ */
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* การตอบสนองต่อหน้าจอขนาดเล็ก (Mobile-First) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section-row {
+                flex-direction: column;
+            }
+            
+            .card, .wide-card, .full-width-card {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .heading h3 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="profile-container">
-    <img src="รูปภาพ.jpg" alt="รูปโปรไฟล์" class="profile-pic" />
-    <h1>พรรธิดา สุระคาย</h1>
-    <p class="bio">เพลง</p>
-    <div class="contact">
-      <a href="mailto:youremail@example.com">Email</a>
-      <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+    <header>
+        <h1>หน้าแรก GitHub.io</h1>
+        <h2>ของนักศึกษา</h2>
+    </header>
+
+    <div class="container">
+        <div class="section-row">
+            <section class="card profile-card" id="profile">
+                <div class="heading">
+                    <h3>แนะนำตัว</h3>
+                </div>
+                <img src="**แทนที่ด้วยลิงก์รูปของคุณ**" alt="รูปโปรไฟล์" class="profile-img">
+                    <p><strong>ชื่อ น.ส.พรรธิดา สุระคาย (Panthida Surakay)</strong></p>
+                    <p><strong>คณะวิทยาศาสตร์ / สาขาวิทยาการคอมพิวเตอร์</strong></p>
+                    <p><strong> นักศึกษาปี2</strong></p>
+                    </div>
+            </section>
+
+            <section class="card skills-card" id="skills">
+                <div class="heading">
+                    <h3>2. ทักษะ (Skills)</h3>
+                </div>
+                <div class="content-placeholder">
+                    <ul class="skills-list">
+                        <li>**Programming:** Python, Java, HTML</li>
+                        <li>**Tools:**VS Code</li>
+                    </ul>
+                    <h4>ทักษะด้านอารมณ์/สังคม (Soft Skills)</h4>
+                    <p> ใจเย็น  </p>
+                </div>
+            </section>
+        </div>
+        <div class="section-row">
+            
+            <section class="card education-card" id="education">
+                <div class="heading">
+                    <h3>การศึกษา (Education)</h3>
+                </div>
+                <div class="content-placeholder">
+                    <ul class="info-list">
+                        <li>จบจากโรงเรียนท่าบ่อ</li>
+                        <li>แผนการเรียน วิทย์-คณิต</li> 
+                        
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="section-row">
+            <section class="card wide-card" id="activities">
+                <div class="heading">
+                    <h3>5. กิจกรรมและผลงาน</h3>
+                </div>
+                <div class="content-placeholder">
+                    <ul class="activity-list">
+                        <li>Paper model</li>
+                        <li>ผู้นำเชียร์</li>
+                    </ul>
+                </div>
+            </section>
+           
+            <section class="card contact-card" id="contact">
+                <div class="heading">
+                    <h3>6. ติดต่อ (Contact)</h3>
+                </div>
+                <div class="content-placeholder">
+                    <ul class="info-list">
+                        <li>📧 **Email:** Jumbo03947@gmail.com</li>
+                        <li>🔗 **GitHub:** [Link to your GitHub Profile]</li>    
+                        <li>📌 **387/6 ต.หนองปลาปาก อ.ศรีเชียงใหม่ จ.หนองคาย</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="card full-width-card" id="career-interest">
+            <div class="heading">
+                <h3>องค์ประกอบเสริม</h3>
+            </div>
+            <p>**เป้าหมาย:อยากเปิดร้านทำเล็บและเสริมสวย</p>
+        </section>
     </div>
-  </div>
 </body>
 </html>
